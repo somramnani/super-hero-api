@@ -17,7 +17,9 @@ export default function App() {
   const getData = (value) => {
     axios({
       method: "get",
-      url: `https://cors.somramnani.repl.co/cors/${value}`,
+      url: `https://api-proxy-server-steel.vercel.app/super-hero-api/${encodeURIComponent(
+        value
+      )}`,
     }).then(function (response) {
       if (response) setData(response.data.results);
     });
