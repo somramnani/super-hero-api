@@ -37,7 +37,7 @@ export default function App() {
   console.log(data);
 
   return (
-    <div>
+    <div className="App">
       <Searchbar
         handleChange={handleChange}
         handleClick={handleClick}
