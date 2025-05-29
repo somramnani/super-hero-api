@@ -11,7 +11,7 @@ A simple React app that allows users to search for their favorite superheroes. I
 - Bypasses CORS issues using a custom Express proxy server
 
 
-## Tech Stack
+## 📦 Technologies
 - React
 - Material UI
 - Axios
