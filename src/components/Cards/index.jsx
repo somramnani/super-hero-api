@@ -4,17 +4,27 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const Cards = ({ data }) => {
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 2,
+        alignItems: "center",
+        mb: 2,
+        px: 2,
+      }}
+    >
       {data.map((hero) => (
-        <div className="cards">
+        <div className="cards" key={hero.id}>
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{ height: 240 }}
               image={hero.image.url}
-              title="green iguana"
+              title={hero.name}
             />
 
             <CardContent>
@@ -22,10 +32,24 @@ const Cards = ({ data }) => {
                 {hero.name}
               </Typography>
 
-              <Typography variant="p" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
+              {hero.powerstats ? (
+                <Box>
+                  {hero.powerstats.intelligence !== "null" && (
+                    <Typography variant="body2" color="text.secondary">
+                      Intelligence: {hero.powerstats.intelligence}
+                    </Typography>
+                  )}
+                  {hero.powerstats.strength !== "null" && (
+                    <Typography variant="body2" color="text.secondary">
+                      Strength: {hero.powerstats.strength}
+                    </Typography>
+                  )}
+                </Box>
+              ) : (
+                <Typography variant="body2" color="text.secondary">
+                  No powerstats available
+                </Typography>
+              )}
             </CardContent>
 
             <CardActions>
@@ -35,7 +59,7 @@ const Cards = ({ data }) => {
           </Card>
         </div>
       ))}
-    </>
+    </Box>
   );
 };
 
