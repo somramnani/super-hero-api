@@ -1,9 +1,9 @@
 import TextField from "@mui/material/TextField";
-import SearchIcon from "@mui/icons-material/Search";
+import { Search, Clear } from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
-const Searchbar = ({ handleClick, handleChange, input }) => {
+const Searchbar = ({ handleClick, handleChange, input, handleClear }) => {
   return (
     <Box display="flex" alignItems="center" gap={1} sx={{ px: 2, mb: 2 }}>
       <TextField
@@ -22,7 +22,17 @@ const Searchbar = ({ handleClick, handleChange, input }) => {
         size="small"
         sx={{ height: "40px" }}
       >
-        <SearchIcon />
+        <Search />
+      </Button>
+
+      <Button
+        variant="contained"
+        color="error"
+        onClick={(e) => handleClear()}
+        size="small"
+        sx={{ height: "40px" }}
+      >
+        <Clear />
       </Button>
     </Box>
   );

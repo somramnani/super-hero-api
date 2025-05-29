@@ -34,6 +34,12 @@ export default function App() {
     if (data) setIsData(true);
   };
 
+  const handleClear = () => {
+    setInput("");
+    setData([]);
+    setIsData(false);
+  };
+
   console.log(data);
 
   return (
@@ -41,6 +47,7 @@ export default function App() {
       <Searchbar
         handleChange={handleChange}
         handleClick={handleClick}
+        handleClear={handleClear}
         input={input}
       />
       {isData ? <Cards data={data} /> : <h2>No results found</h2>}
