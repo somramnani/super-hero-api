@@ -5,7 +5,21 @@ import Box from "@mui/material/Box";
 
 const Searchbar = ({ handleClick, handleChange, input, handleClear }) => {
   return (
-    <Box display="flex" alignItems="center" gap={1} sx={{ px: 2, mb: 2 }}>
+    <Box
+      display="flex"
+      alignItems="center"
+      gap={1}
+      sx={{
+        px: 2,
+        py: 2,
+        mb: 3,
+        borderRadius: 2,
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        boxShadow: 3,
+        maxWidth: 600,
+        width: "100%",
+      }}
+    >
       <TextField
         id="outlined-basic"
         label="Enter super hero"
@@ -13,7 +27,7 @@ const Searchbar = ({ handleClick, handleChange, input, handleClear }) => {
         value={input}
         onChange={(e) => handleChange(e)}
         size="small"
-        sx={{ flexGrow: 1 }}
+        sx={{ flexGrow: 1, backgroundColor: "white" }}
       />
 
       <Button
